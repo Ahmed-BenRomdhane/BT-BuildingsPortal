@@ -1,4 +1,4 @@
-<div class="container mt-4" style="width: 75%;">
+<div class="container build">
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12">
       <mat-stepper linear #stepper>
@@ -131,7 +131,65 @@
               </div>
             </mat-card>
             <div class="mt-4">
+              <button mat-button matStepperPrevious>Back</button>
               <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="addressFormGroup" editable="true" label="Where is the building ?">
+          <form [formGroup]="addressFormGroup">
+            <mat-card>
+              <div class="row">
+                <div class="col-lg-4">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Street Name</mat-label>
+                    <input matInput formControlName="streetName" type="text" required>
+                    <mat-error>Street Name is required/invalid</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-4">
+                  <mat-form-field appearance="fill">
+                    <mat-label>City</mat-label>
+                    <input matInput formControlName="city" type="text" required>
+                    <mat-error>City is required/invalid</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-4">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Postal Code</mat-label>
+                    <input matInput formControlName="postalCode" type="text" required>
+                    <mat-error>Postal Code is required/invalid</mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-lg-4">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Province</mat-label>
+                    <input matInput formControlName="province" type="text">
+                    <mat-error>Province is required/invalid</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-4">
+                  <mat-form-field appearance="fill">
+                    <mat-label>House Number</mat-label>
+                    <input matInput formControlName="houseNumber" type="text">
+                    <mat-error>House Number is required/invalid</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-4">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Country Code</mat-label>
+                    <input matInput formControlName="countryCode" type="text">
+                    <mat-error>Country Code is required/invalid</mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+            </mat-card>
+            <div class="mt-4">
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Publish</button>
             </div>
           </form>
         </mat-step>

@@ -27,7 +27,14 @@ export class BuildComponent implements OnInit {
   });
   minDate = new Date('1/1/1920');
   maxDate = new Date();
-
+  addressFormGroup: FormGroup = this.fb.group({
+    streetName: new FormControl(),
+    city: new FormControl(),
+    postalCode: new FormControl(),
+    province: new FormControl(),
+    houseNumber: new FormControl(),
+    countryCode: new FormControl(),
+  });
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
