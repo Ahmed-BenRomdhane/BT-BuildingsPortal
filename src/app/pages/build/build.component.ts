@@ -2,6 +2,7 @@ import { OwnersService } from './../../services/owners.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Owner } from 'src/app/models/owner.model';
+import { AddressService } from 'src/app/services/address.service';
 
 @Component({
   selector: 'app-build',
@@ -40,7 +41,7 @@ export class BuildComponent implements OnInit {
   cinFilled = false;
   areOwnerFieldsReadOnly = false;
 
-  constructor(private fb: FormBuilder, private ownersService: OwnersService) { }
+  constructor(private addressService: AddressService, private fb: FormBuilder, private ownersService: OwnersService) { }
 
   ngOnInit(): void {
   }
@@ -65,5 +66,11 @@ export class BuildComponent implements OnInit {
 
   patchOwnerFormGroup(owner: Owner): void {
     this.ownerFormGroup.patchValue(owner);
+  }
+
+  publishBuilding(): void {
+    if (this.addressFormGroup.valid) {
+      this.addressService.CreateAddress(this.addressFormGroup.value).subscribe();
+    }
   }
 }

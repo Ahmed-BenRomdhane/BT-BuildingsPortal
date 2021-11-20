@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class OwnersService {
-  ENDPOINT = environment.ownersEndpoint;
+  private ENDPOINT = environment.ownersEndpoint;
 
   constructor(private http: HttpClient) { }
 
