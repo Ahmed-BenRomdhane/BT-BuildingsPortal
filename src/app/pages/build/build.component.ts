@@ -1,5 +1,7 @@
+import { OwnersService } from './../../services/owners.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Owner } from 'src/app/models/owner.model';
 
 @Component({
   selector: 'app-build',
@@ -35,9 +37,33 @@ export class BuildComponent implements OnInit {
     houseNumber: new FormControl(),
     countryCode: new FormControl(),
   });
-  constructor(private fb: FormBuilder) { }
+  cinFilled = false;
+  areOwnerFieldsReadOnly = false;
+
+  constructor(private fb: FormBuilder, private ownersService: OwnersService) { }
 
   ngOnInit(): void {
   }
 
+  checkOwnerExistsOrNot(): void {
+    const cin = this.ownerFormGroup.get('cin')?.value;
+    if (cin) {
+      this.cinFilled = true;
+      this.ownersService.IsOwnerAlreadyExists(cin).subscribe((owner) => {
+        if (owner) {
+          this.areOwnerFieldsReadOnly = true;
+          this.patchOwnerFormGroup(owner);
+        } else {
+          this.areOwnerFieldsReadOnly = false;
+          this.ownerFormGroup.patchValue({ firstName: '', lastName: '', email: '', phoneNumber: '', dateOfBirth: null });
+        }
+      });
+    } else {
+      this.cinFilled = false;
+    }
+  }
+
+  patchOwnerFormGroup(owner: Owner): void {
+    this.ownerFormGroup.patchValue(owner);
+  }
 }
