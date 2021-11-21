@@ -88,8 +88,8 @@ export class BuildComponent implements OnInit {
         }
         if (this.buildingFormGroup.valid) {
           const building: Building = this.buildingFormGroup.value;
-          building.owner = this.ownerFormGroup.value;
-          building.address = this.addressFormGroup.value;
+          building.Owner = this.ownerFormGroup.value;
+          building.Address = this.addressFormGroup.value;
           this.buildingsService.CreateBuilding(building).subscribe((building) => {
             this._snackBar.open('Your building is published. Great Success.', 'X', {
               horizontalPosition: 'center',

@@ -21,7 +21,7 @@ export class BuildingComponent implements OnInit {
     this.buildingsService.GetBuilding(this.buildingId).subscribe((building) => {
       this.building = building;
       console.log(this.building);
-      this.buildingImages = this.building.buildingImages ?? [];
+      this.buildingImages = this.building.BuildingImages ?? [];
     });
   }
 

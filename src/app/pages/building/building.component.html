@@ -1,26 +1,114 @@
-<p>building works!</p>
-<div id="carousel" class="carousel slide" data-bs-ride="carousel">
-  <!-- <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active"
-      aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carousel" data-bs-slide-to="1"
-      aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carousel" data-bs-slide-to="2"
-      aria-label="Slide 3"></button>
-  </div> -->
-  <div class="carousel-inner">
-    <div *ngFor="let buildingImage of buildingImages">
-      <div class="carousel-item active">
-        <img [src]="buildingImage.buildingImageUrl" class="d-block w-100" alt="...">
+<div class="mt-4">
+  <h1>{{building?.Name}}</h1>
+  <h2>{{building?.Price}} €</h2>
+  <div class="row mt-4 mb-4">
+    <div class="col-lg-12">
+      <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div *ngFor="let buildingImage of buildingImages">
+            <div class="carousel-item active">
+              <img [src]="buildingImage.buildingImageUrl" class="d-block w-100" alt="...">
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
     </div>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+  <div class="mt-4 p-4">
+    <div class="row ">
+      <div class="col-lg-3 ">
+      </div>
+      <div class="col-lg-6">
+        <div class="row">
+          <div class="col-lg-6">
+            <mat-card>
+              <span>Is Free? </span><b>{{building?.IsFree === true ? 'Yes':'No'}}</b>
+            </mat-card>
+          </div>
+          <div class="col-lg-6">
+            <mat-card>
+              <span>Area: </span><b>{{building?.Area}} m²</b>
+            </mat-card>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <mat-card>
+              <span>Status: </span><b>{{building?.Status}}</b>
+            </mat-card>
+          </div>
+          <div class="col-lg-6">
+            <mat-card>
+              <span>Rooms: </span><b>{{building?.TotalRooms}}</b>
+            </mat-card>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <mat-card>
+              <span>Likes: </span><b>{{building?.TotalLikes}}</b>
+            </mat-card>
+          </div>
+          <div class="col-lg-6">
+            <mat-card>
+              <span>Views: </span><b>{{building?.TotalViews}}</b>
+            </mat-card>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <mat-card>
+              <span>Publish Date: </span><b>{{building?.PublishDate|date}}</b>
+            </mat-card>
+          </div>
+          <div class="col-lg-6">
+            <mat-card>
+              <span>Price: </span><b>{{building?.Price}} €</b>
+            </mat-card>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <mat-card>
+              <span>Description: </span><b>{{building?.Description}}</b>
+            </mat-card>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-lg-6">
+            <mat-card>
+              <span>Owner: </span><b>{{building?.Owner?.FirstName}} {{building?.Owner?.LastName}}</b>
+            </mat-card>
+          </div>
+          <div class="col-lg-6">
+            <mat-card>
+              <span>Date Of Birth: </span><b>{{building?.Owner?.DateOfBirth|date}}</b>
+            </mat-card>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <mat-card>
+              <span>Email: </span><b>{{building?.Owner?.Email}}</b>
+            </mat-card>
+          </div>
+          <div class="col-lg-6">
+            <mat-card>
+              <span>Phone Number: </span><b>{{building?.Owner?.PhoneNumber}}</b>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3">
+      </div>
+    </div>
+  </div>
 </div>
