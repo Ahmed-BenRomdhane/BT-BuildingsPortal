@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -16,6 +16,13 @@ export class BuildingsService {
   constructor(private http: HttpClient) { }
 
   CreateBuilding(building: Building): Observable<any> {
-    return this.http.post<APIResult>(`${this.ENDPOINT}CreateBuilding`, building).pipe(map((result) => { return result.data }));
+    return this.http.post<APIResult>(`${this.ENDPOINT}CreateBuilding`, building).pipe(map((result) => { return result.Data }));
+  }
+
+  GetBuilding(buildingId: string): Observable<Building> {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    }
+    return this.http.post<APIResult>(`${this.ENDPOINT}GetBuilding`, `'${buildingId}'`, httpOptions).pipe(map((result) => { return result.Data }));
   }
 }

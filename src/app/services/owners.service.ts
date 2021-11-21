@@ -15,10 +15,10 @@ export class OwnersService {
   constructor(private http: HttpClient) { }
 
   IsOwnerAlreadyExists(cin: string): Observable<Owner | null> {
-    return this.http.post<APIResult>(`${this.ENDPOINT}IsOwnerExists`, cin).pipe(map((result) => { return result.data }));
+    return this.http.post<APIResult>(`${this.ENDPOINT}IsOwnerExists`, cin).pipe(map((result) => { return result.Data }));
   }
 
   CreateOwner(owner: Owner): Observable<Owner> {
-    return this.http.post<APIResult>(`${this.ENDPOINT}CreateOwner`, owner).pipe(map((result) => { return result.data }));
+    return this.http.post<APIResult>(`${this.ENDPOINT}CreateOwner`, owner).pipe(map((result) => { return result.Data }));
   }
 }

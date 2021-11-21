@@ -78,7 +78,7 @@
                 <div class="col-lg-12">
                   <mat-form-field appearance="fill">
                     <mat-label>CIN</mat-label>
-                    <input matInput formControlName="cin" type="number" required min="0" max="99999999"
+                    <input matInput formControlName="Cin" type="number" required min="0" max="99999999"
                       (focusout)="checkOwnerExistsOrNot()">
                     <mat-error>CIN is required/invalid</mat-error>
                   </mat-form-field>
@@ -89,7 +89,7 @@
                 <div class="col-lg-6">
                   <mat-form-field appearance="fill">
                     <mat-label>First Name</mat-label>
-                    <input matInput formControlName="firstName" type="text" required
+                    <input matInput formControlName="FirstName" type="text" required
                       [readonly]="areOwnerFieldsReadOnly">
                     <mat-error>First Name is required/invalid</mat-error>
                   </mat-form-field>
@@ -97,7 +97,7 @@
                 <div class="col-lg-6">
                   <mat-form-field appearance="fill">
                     <mat-label>Last Name</mat-label>
-                    <input matInput formControlName="lastName" type="text" required [readonly]="areOwnerFieldsReadOnly">
+                    <input matInput formControlName="LastName" type="text" required [readonly]="areOwnerFieldsReadOnly">
                     <mat-error>Last Name is required/invalid</mat-error>
                   </mat-form-field>
                 </div>
@@ -108,14 +108,14 @@
                 <div class="col-lg-6">
                   <mat-form-field appearance="fill">
                     <mat-label>Email</mat-label>
-                    <input matInput formControlName="email" type="email" required [readonly]="areOwnerFieldsReadOnly">
+                    <input matInput formControlName="Email" type="email" required [readonly]="areOwnerFieldsReadOnly">
                     <mat-error>Email is required/invalid</mat-error>
                   </mat-form-field>
                 </div>
                 <div class="col-lg-6">
                   <mat-form-field appearance="fill">
                     <mat-label>Phone Number</mat-label>
-                    <input matInput formControlName="phoneNumber" type="text" required
+                    <input matInput formControlName="PhoneNumber" type="text" required
                       [readonly]="areOwnerFieldsReadOnly">
                     <mat-error>Phone Number is required/invalid</mat-error>
                   </mat-form-field>
@@ -126,7 +126,7 @@
                 <div class="col-lg-12">
                   <mat-form-field appearance="fill">
                     <mat-label>Date of birth</mat-label>
-                    <input matInput formControlName="dateOfBirth" [matDatepicker]="picker" [min]="minDate"
+                    <input matInput formControlName="DateOfBirth" [matDatepicker]="picker" [min]="minDate"
                       [max]="maxDate" [readonly]="areOwnerFieldsReadOnly" required>
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>

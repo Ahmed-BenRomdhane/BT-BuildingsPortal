@@ -1,8 +1,8 @@
 export interface Owner {
-   cin: number;
-   firstName: string;
-   lastName: string;
-   email: string;
-   phoneNumber: string;
-   dateOfBirth: Date;
+   Cin: number;
+   FirstName: string;
+   LastName: string;
+   Email: string;
+   PhoneNumber: string;
+   DateOfBirth: Date;
 }

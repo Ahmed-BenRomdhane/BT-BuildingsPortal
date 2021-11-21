@@ -23,13 +23,13 @@ export class BuildComponent implements OnInit {
     isFree: new FormControl(true),
   });
   ownerFormGroup: FormGroup = this.fb.group({
-    cin: new FormControl(),
-    firstName: new FormControl(),
-    lastName: new FormControl(),
-    email: new FormControl('', [
+    Cin: new FormControl(),
+    FirstName: new FormControl(),
+    LastName: new FormControl(),
+    Email: new FormControl('', [
       Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
-    phoneNumber: new FormControl(),
-    dateOfBirth: new FormControl(),
+    PhoneNumber: new FormControl(),
+    DateOfBirth: new FormControl(),
   });
   minDate = new Date('1/1/1920');
   maxDate = new Date();
@@ -51,7 +51,7 @@ export class BuildComponent implements OnInit {
   }
 
   checkOwnerExistsOrNot(): void {
-    const cin = this.ownerFormGroup.get('cin')?.value;
+    const cin = this.ownerFormGroup.get('Cin')?.value;
     if (cin) {
       this.cinFilled = true;
       this.ownersService.IsOwnerAlreadyExists(cin).subscribe((owner) => {

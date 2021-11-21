@@ -1,6 +1,6 @@
 export interface APIResult {
-   success: boolean;
-   statusCode: number;
-   errorMessage: string;
-   data: any;
+   Success: boolean;
+   StatusCode: number;
+   ErrorMessage: string;
+   Data: any;
 }
