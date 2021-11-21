@@ -17,4 +17,8 @@ export class OwnersService {
   IsOwnerAlreadyExists(cin: string): Observable<Owner | null> {
     return this.http.post<APIResult>(`${this.ENDPOINT}IsOwnerExists`, cin).pipe(map((result) => { return result.data }));
   }
+
+  CreateOwner(owner: Owner): Observable<Owner> {
+    return this.http.post<APIResult>(`${this.ENDPOINT}CreateOwner`, owner).pipe(map((result) => { return result.data }));
+  }
 }
