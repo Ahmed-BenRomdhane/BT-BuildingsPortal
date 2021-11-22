@@ -76,8 +76,6 @@ export class BuildComponent implements OnInit {
     if (this.addressFormGroup.valid) {
       this.addressService.CreateAddress(this.addressFormGroup.value).subscribe(() => {
         if (this.ownerFormGroup.valid && !this.areOwnerFieldsReadOnly) {
-          console.log(this.ownerFormGroup.value);
-
           this.ownersService.CreateOwner(this.ownerFormGroup.value).subscribe(() => {
           }, (error) => {
             this._snackBar.open('There was error when creating the owner', 'X', {
@@ -95,7 +93,6 @@ export class BuildComponent implements OnInit {
               horizontalPosition: 'center',
               verticalPosition: 'bottom',
             });
-            console.log(building);
             this.router.navigate(['/building/' + building.Id]);
           }, (error) => {
             this._snackBar.open('There was error when creating the building', 'X', {

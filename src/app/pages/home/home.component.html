@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12 border-red">
+    <div class="col-lg-12 col-md-12 col-sm-12">
       <div class="row">
         <div *ngFor="let building of buildings" class="col-lg-4">
           <app-building-card [building]="building"></app-building-card>
@@ -9,3 +9,6 @@
     </div>
   </div>
 </div>
+<button mat-fab class="sticky" (click)="goToNewBuilding()">
+  <mat-icon>add</mat-icon>
+</button>
