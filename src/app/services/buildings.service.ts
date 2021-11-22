@@ -1,3 +1,4 @@
+import { BuildingImage } from './../models/building-image.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -12,6 +13,7 @@ import { Building } from '../models/building.model';
 export class BuildingsService {
 
   private ENDPOINT = environment.buildingsEndpoint;
+  private ENDPOINT_IMAGES = environment.buildingImagesEndpoint;
 
   constructor(private http: HttpClient) { }
 
@@ -28,5 +30,9 @@ export class BuildingsService {
 
   GetAllBuildings(): Observable<Building[]> {
     return this.http.get<APIResult>(`${this.ENDPOINT}GetAllBuildings`).pipe(map((result) => { return result.Data }));
+  }
+
+  CreateBuildingImage(buildingImage: BuildingImage): Observable<any> {
+    return this.http.post<APIResult>(`${this.ENDPOINT_IMAGES}CreateBuildingImage`, buildingImage).pipe(map((result) => { return result.Data }));
   }
 }

@@ -1,6 +1,6 @@
 <mat-card (click)="goToBuildingDetails(building.Id)">
   <img mat-card-image
-    [src]="building.BuildingImages[0]?.buildingImageUrl ? building.BuildingImages[0]?.buildingImageUrl : './assets/static/no-building-image.jpg'"
+    [src]="building.BuildingImages[0]?.BuildingImageUrl ?  './assets/static/' + building.BuildingImages[0]?.BuildingImageUrl : './assets/static/no-building-image.jpg'"
     alt="./assets/static/no-building-image.jpg">
   <mat-card-content>
     <p>{{building?.Name}}</p>

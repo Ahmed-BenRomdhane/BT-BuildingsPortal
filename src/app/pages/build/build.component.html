@@ -65,6 +65,20 @@
                 </div>
               </div>
 
+              <div class="row">
+                <div class="col-lg-12">
+                  <input #fileInput hidden="true" type="file" onclick="this.value=null"
+                    (change)="buildingImagesInputChange($event)" accept="image/*" multiple />
+                  <button mat-flat-button color="primary" (click)="fileInput.click()">Choose the images of your
+                    Building</button>
+                  <mat-list role="list" *ngIf="buildingImages && buildingImages.length > 0">
+                    <mat-list-item *ngFor="let imageUrl of buildingImages" role="listitem">{{imageUrl}}
+                      <span class="cross" (click)="deleteBuildingImage(imageUrl)">X</span>
+                    </mat-list-item>
+
+                  </mat-list>
+                </div>
+              </div>
             </mat-card>
             <div class="mt-4">
               <button mat-button matStepperNext>Next</button>

@@ -1,3 +1,4 @@
+import { BuildingImage } from './../../models/building-image.model';
 import { BuildingsService } from './../../services/buildings.service';
 import { OwnersService } from './../../services/owners.service';
 import { Component, OnInit } from '@angular/core';
@@ -43,6 +44,7 @@ export class BuildComponent implements OnInit {
   });
   cinFilled = false;
   areOwnerFieldsReadOnly = false;
+  buildingImages: any[] = [];
 
   constructor(private addressService: AddressService, private buildingsService: BuildingsService, private fb: FormBuilder,
     private ownersService: OwnersService, private router: Router, private _snackBar: MatSnackBar) { }
@@ -93,6 +95,15 @@ export class BuildComponent implements OnInit {
               horizontalPosition: 'center',
               verticalPosition: 'bottom',
             });
+            if (this.buildingImages && this.buildingImages.length > 0) {
+              for (const image of this.buildingImages) {
+                const buildingImage: BuildingImage = {
+                  BuildingId: building.Id,
+                  BuildingImageUrl: image
+                }
+                this.buildingsService.CreateBuildingImage(buildingImage).subscribe();
+              }
+            }
             this.router.navigate(['/building/' + building.Id]);
           }, (error) => {
             this._snackBar.open('There was error when creating the building', 'X', {
@@ -108,5 +119,18 @@ export class BuildComponent implements OnInit {
         });
       });
     }
+  }
+
+  buildingImagesInputChange(event: any): void {
+    const files = event.target.files;
+    if (files) {
+      for (const file of files) {
+        this.buildingImages.push(file.name);
+      }
+    }
+  }
+
+  deleteBuildingImage(imageUrl: string): void {
+    this.buildingImages = this.buildingImages.filter(image => image !== imageUrl);
   }
 }

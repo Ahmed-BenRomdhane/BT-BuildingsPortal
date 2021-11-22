@@ -7,7 +7,7 @@ export const environment = {
   ownersEndpoint: 'https://localhost:44327/api/Owner/',
   addressesEndpoint: 'https://localhost:44327/api/Address/',
   buildingsEndpoint: 'https://localhost:44327/api/Building/',
-  buildingImagesEndpoint: 'https://localhost:44327/api/BuildingImage/'
+  buildingImagesEndpoint: 'https://localhost:44327/api/BuildingImages/'
 };
 
 /*

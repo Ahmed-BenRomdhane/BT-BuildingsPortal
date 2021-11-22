@@ -8,6 +8,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 export const MATERIALS = [
    MatCardModule,
@@ -19,5 +20,6 @@ export const MATERIALS = [
    MatDatepickerModule,
    MatNativeDateModule,
    MatSnackBarModule,
-   MatIconModule
+   MatIconModule,
+   MatListModule
 ]

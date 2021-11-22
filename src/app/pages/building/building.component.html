@@ -6,9 +6,9 @@
       <div *ngIf="buildingImages && buildingImages.length > 0" id="carousel" class="carousel slide"
         data-bs-ride="carousel">
         <div class="carousel-inner">
-          <div *ngFor="let buildingImage of buildingImages">
-            <div class="carousel-item active">
-              <img [src]="buildingImage.buildingImageUrl" class="d-block w-100" alt="...">
+          <div *ngFor="let buildingImage of buildingImages; let i=index;">
+            <div class="carousel-item" [ngClass]="i ? 'active' : ''">
+              <img [src]="'./assets/static/' + buildingImage.BuildingImageUrl" class="d-block w-100" alt="...">
             </div>
           </div>
         </div>

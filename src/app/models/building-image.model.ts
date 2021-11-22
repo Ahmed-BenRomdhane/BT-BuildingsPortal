@@ -1,4 +1,4 @@
 export interface BuildingImage {
-   buildingId: string;
-   buildingImageUrl: string;
+   BuildingId: string;
+   BuildingImageUrl: string;
 }
