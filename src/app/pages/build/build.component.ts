@@ -96,7 +96,7 @@ export class BuildComponent implements OnInit {
               verticalPosition: 'bottom',
             });
             console.log(building);
-            this.router.navigate(['/building/' + building.id]);
+            this.router.navigate(['/building/' + building.Id]);
           }, (error) => {
             this._snackBar.open('There was error when creating the building', 'X', {
               horizontalPosition: 'center',

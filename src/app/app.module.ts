@@ -9,12 +9,14 @@ import { MATERIALS } from './app.material';
 import { BuildComponent } from './pages/build/build.component';
 import { BuildingComponent } from './pages/building/building.component';
 import { HomeComponent } from './pages/home/home.component';
+import { BuildingCardComponent } from './components/building-card/building-card.component';
 @NgModule({
   declarations: [
     AppComponent,
     BuildingComponent,
     HomeComponent,
-    BuildComponent
+    BuildComponent,
+    BuildingCardComponent
   ],
   imports: [
     BrowserModule,

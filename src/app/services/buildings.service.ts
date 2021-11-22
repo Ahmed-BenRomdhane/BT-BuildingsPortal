@@ -25,4 +25,8 @@ export class BuildingsService {
     }
     return this.http.post<APIResult>(`${this.ENDPOINT}GetBuilding`, `'${buildingId}'`, httpOptions).pipe(map((result) => { return result.Data }));
   }
+
+  GetAllBuildings(): Observable<Building[]> {
+    return this.http.get<APIResult>(`${this.ENDPOINT}GetAllBuildings`).pipe(map((result) => { return result.Data }));
+  }
 }

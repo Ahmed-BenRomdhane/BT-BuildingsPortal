@@ -3,6 +3,7 @@ import { BuildingImage } from './building-image.model';
 import { Owner } from './owner.model';
 
 export interface Building {
+   Id: string;
    TotalRooms: number;
    TotalViews: number;
    TotalLikes: number;
